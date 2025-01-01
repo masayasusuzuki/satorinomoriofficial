@@ -1,0 +1,1371 @@
+/* モォントの追加 */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+/* リセットとベーススタイル */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* カラー変数の定義 */
+:root {
+    --primary-color: #1e4d2b;
+    --secondary-color: #0d3320;
+    --accent-color: #c17f16;
+    --gradient-start: #0a1f12;
+    --gradient-end: #050d08;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    color: #fff;
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ヘッダースタイル */
+header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.imgur.com/tMDrq5m.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(20, 90, 50, 0.2);
+    pointer-events: none;
+}
+
+header h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+header h1::after {
+    content: 'Official Site';
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* メインコンテンツ */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* ヒーローセクション */
+.hero {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.97), rgba(248, 249, 250, 0.97));
+    border-radius: 25px;
+    padding: 3rem;
+    margin-bottom: 4rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    border-radius: 25px 25px 0 0;
+}
+
+.hero img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 15px;
+    margin: 0 auto 2rem;
+    display: block;
+}
+
+.hero img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: #2c3e50;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 0;
+}
+
+/* コンテンツセクション */
+.content {
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 25px;
+    padding: 3rem;
+    margin-bottom: 4rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: none;
+    position: relative;
+    color: #333;
+    backdrop-filter: blur(10px);
+}
+
+.content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    border-radius: 25px 25px 0 0;
+}
+
+/* セクションタイトル */
+h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.4rem;
+    color: #2c3e50;
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 1.2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    background: linear-gradient(45deg, #2c3e50, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    border-radius: 2px;
+}
+
+/* ボタンコンテナ */
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+    padding: 1rem;
+}
+
+/* ボタンスタイル */
+.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.8rem;
+    margin: 0.5rem;
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.button:hover::before {
+    transform: translateX(100%);
+}
+
+.button i {
+    font-size: 2.8rem;
+    margin-bottom: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.button:hover i {
+    transform: scale(1.1);
+}
+
+.button span {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    position: relative;
+}
+
+.button span::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: white;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.button:hover span::after {
+    width: 80%;
+}
+
+/* フッター */
+footer {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    position: relative;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+    opacity: 0.6;
+}
+
+footer p {
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 0.1em;
+    font-size: 1.1rem;
+    position: relative;
+    display: inline-block;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    footer p {
+        font-size: 1rem;
+    }
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    header {
+        padding: 3rem 1rem;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero {
+        padding: 1.5rem;
+    }
+
+    .hero img {
+        height: 250px;
+    }
+
+    .content {
+        padding: 1.5rem;
+    }
+
+    .instructor-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .button-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .hero {
+        padding: 1rem;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+
+    .instructor-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 記事ページのスタイル */
+.breadcrumb {
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.breadcrumb a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.article-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* 見出しスタイル */
+.article-content h2 {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.article-content h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    color: #2c3e50;
+}
+
+/* 段落スタイル */
+.article-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+/* リストスタイル */
+.article-content ul, 
+.article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.article-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* コードブロック */
+.article-content pre {
+    background: #f5f7fa;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+/* 引用 */
+.article-content blockquote {
+    border-left: 4px solid #3498db;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: #666;
+}
+
+/* ページナビゲーション */
+.page-nav {
+    margin-top: 3rem;
+    text-align: center;
+} 
+
+/* Notionリンクのスタイル */
+.notion-link {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.notion-button {
+    display: inline-flex;
+    align-items: center;
+    background: #000;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.notion-button:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+.notion-button i {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* ヘッダーのNotionリンク */
+.breadcrumb .notion-link {
+    float: right;
+    color: #3498db;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.breadcrumb .notion-link:hover {
+    text-decoration: underline;
+} 
+
+/* チャットボットのスタイル */
+.chat-window {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 350px;
+    height: 650px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.chat-window.visible {
+    display: block;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.chat-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.chat-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    overflow-y: auto;
+    height: calc(100% - 60px);
+}
+
+.faq-section {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    max-height: 300px;
+}
+
+.faq-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.faq-button {
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    text-align: left;
+    color: #333;
+}
+
+.faq-button:hover {
+    background: #f0f0f0;
+    border-color: #ccc;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 250px;
+}
+
+.chat-input-container {
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #eee;
+    display: none;
+}
+
+.chat-input-container.visible {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    background: #f8f9fa;
+}
+
+.chat-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: white;
+}
+
+.send-button {
+    padding: 8px 15px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.send-button:hover {
+    background: var(--secondary-color);
+}
+
+.message {
+    margin: 8px 0;
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 80%;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.message.bot {
+    background: #f0f0f0;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+    color: #000;
+}
+
+.message.user {
+    background: var(--primary-color);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+.message.loading {
+    background: #f0f0f0;
+    color: #666;
+    font-style: italic;
+    animation: pulse 1.5s infinite;
+}
+
+.other-questions-button {
+    width: 100%;
+    padding: 10px 15px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 8px;
+}
+
+.other-questions-button:hover {
+    background: #f0f0f0;
+    border-color: #ccc;
+}
+
+/* チャットボットトグルボタン */
+.chat-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #FFD700;
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    z-index: 1000;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-decoration: none;
+    width: 280px;
+    text-align: center;
+}
+
+.chat-toggle span {
+    flex: 1;
+    text-align: center;
+}
+
+.chat-toggle:hover {
+    transform: translateY(-2px);
+    background: #FFE44D;
+}
+
+.chat-toggle.hidden {
+    display: none;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    margin-left: auto;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.close-button:hover {
+    opacity: 1;
+} 
+
+/* ヒーローコンテンツのスタイル */
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.hero-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.hero-main {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+}
+
+.hero-section {
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.hero-text {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-emphasis {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    line-height: 1.8;
+    margin: 2rem auto;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    max-width: 800px;
+}
+
+@media (max-width: 768px) {
+    .hero-main {
+        font-size: 1.6rem;
+    }
+    
+    .hero-text {
+        font-size: 1rem;
+    }
+    
+    .hero-emphasis {
+        font-size: 1.1rem;
+    }
+}
+
+/* 講師一覧セクション */
+.instructor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.instructor-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.instructor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.instructor-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.instructor-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0.5rem 0;
+}
+
+.instructor-description {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    min-height: 6em;
+}
+
+.x-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: #000;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.x-button:hover {
+    background: #333;
+}
+
+.instructor-card.hidden {
+    display: none;
+}
+
+.instructor-card.visible {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .instructor-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .instructor-card {
+        padding: 1.5rem;
+    }
+
+    .instructor-avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .instructor-name {
+        font-size: 1.2rem;
+    }
+
+    .instructor-description {
+        font-size: 0.9rem;
+    }
+}
+
+/* セミナーセクション */
+.seminar-section {
+    margin-top: 4rem;
+}
+
+.seminar-image {
+    max-width: 100%;
+    margin-bottom: 2rem;
+}
+
+.seminar-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* ボタンの調整 */
+.button {
+    padding: 1.5rem;
+    margin: 0.5rem;
+    width: 100%;
+}
+
+.forest-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.2rem;
+    text-decoration: none;
+}
+
+.forest-button span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.forest-button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+/* 講義アーカイブのスタイル */
+.lecture-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.lecture-item {
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lecture-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.lecture-content {
+    flex: 1;
+    margin-bottom: 1.5rem;
+}
+
+.lecture-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid var(--accent-color);
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lecture-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.archive-title {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin: 3rem 0 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.archive-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+.lecture-item .forest-button {
+    width: 100%;
+    height: 3.2rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    margin-top: auto;
+    padding: 0;
+}
+
+.lecture-item .forest-button span {
+    font-weight: 600;
+    display: block;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.lecture-item .forest-button:hover {
+    background: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+    .lecture-list {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .lecture-title {
+        font-size: 1.2rem;
+    }
+
+    .lecture-description {
+        font-size: 0.9rem;
+    }
+
+    .archive-title {
+        font-size: 1.6rem;
+        margin: 2rem 0 1.5rem;
+    }
+}
+
+.video-container {
+    margin: 4rem auto;
+    max-width: 800px;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9のアスペクト比 */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .video-container {
+        margin: 3rem auto;
+    }
+}
+
+/* 参加セクション */
+.join-section {
+    margin: 6rem auto 4rem;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 252, 235, 0.9));
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--accent-color);
+}
+
+.join-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.join-section h2 {
+    font-size: 2.4rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 0.05em;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 1rem;
+}
+
+.join-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+.join-description {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin: 2rem 0;
+    line-height: 1.8;
+    font-weight: 500;
+}
+
+.join-button {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.join-button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .join-section {
+        margin: 4rem auto 3rem;
+        padding: 2rem 1.5rem;
+    }
+
+    .join-section h2 {
+        font-size: 2rem;
+    }
+
+    .join-description {
+        font-size: 1.1rem;
+        margin: 1.5rem 0;
+    }
+
+    .join-button {
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .join-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .join-description {
+        font-size: 1rem;
+    }
+
+    .join-button {
+        width: 90%;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+}
+
+.header-join-button {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.header-join-button:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* オーナーセクションのスタイル */
+.owner-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    margin-bottom: 3rem;
+    min-height: 600px;
+}
+
+.owner-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.owner-avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 4px solid var(--primary-color);
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+    background-color: var(--primary-color);
+}
+
+.owner-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.owner-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 2rem;
+    max-width: 800px;
+}
+
+.owner-card .x-button {
+    position: static;
+    transform: none;
+    width: auto;
+    min-width: 200px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #000;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.owner-card .x-button:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .owner-avatar {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .owner-name {
+        font-size: 1.5rem;
+    }
+    
+    .owner-description {
+        font-size: 1rem;
+    }
+}
+
+.instructor-card.hidden {
+    display: none;
+}
+
+.instructor-card.visible {
+    display: flex;
+}
+
+.more-instructors-button {
+    margin-top: 2rem;
+    width: auto;
+    min-width: 200px;
+}
+
+.level-courses {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.level-course {
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.level-course:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.level-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.level-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.level-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.level-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .level-course {
+        grid-template-columns: 1fr;
+    }
+
+    .level-image {
+        height: 150px;
+    }
+} 

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI中級者向け講座 | さとりの森</title>
+    <link rel="icon" type="image/png" href="https://i.imgur.com/Q51tG0e.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="js/auth.js"></script>
+</head>
+<body>
+    <header>
+        <h1>AI中級者向け講座</h1>
+        <div class="header-ornament left"></div>
+        <div class="header-ornament right"></div>
+    </header>
+    <main>
+        <section class="content">
+            <div class="breadcrumb">
+                <a href="index.html">ホーム</a> > AI中級者向け講座
+            </div>
+            <div class="level-description">
+                <img src="https://i.imgur.com/hrmHDji.jpg" alt="AI中級者向け講座イメージ" class="level-image">
+                <p>AIを活用した業務効率化に焦点を当て、実践的なワークフローの改善方法を学びます。自動化スクリプトの作成からWebサイト制作まで、幅広いスキルを習得できます。</p>
+            </div>
+            <div class="lecture-list">
+                <div class="lecture-item">
+                    <div class="lecture-content">
+                        <h4 class="lecture-title">GAS×Feloで業務自動化</h4>
+                        <p class="lecture-description">Google Apps ScriptとFeloを使った業務効率化の方法を紹介。実践的な自動化スクリプトの作成方法を学びます。</p>
+                    </div>
+                    <a href="#" class="button forest-button" onclick="checkLecturePasscode(event, 'https://planet-wound-c29.notion.site/2024-11-30-GAS-Felo-keitaro-85a176c5b89f45a4a81241fd0fc5b25c?pvs=4')">
+                        <span>講義動画を見る</span>
+                    </a>
+                </div>
+                <div class="lecture-item">
+                    <div class="lecture-content">
+                        <h4 class="lecture-title">v0×Cursorで本格Webサイト制作</h4>
+                        <p class="lecture-description">v0とCursorを組み合わせた効率的なWebサイト制作手法を学習。実践的なサイト構築方法を詳しく解説します。</p>
+                    </div>
+                    <a href="#" class="button forest-button" onclick="checkLecturePasscode(event, 'https://us06web.zoom.us/rec/share/RgMrO4UXsMyxnb_k2TGnmGR-x6OoiEsmztnMNyqjmWn8jTBkiq6jixI4PCO-iEUB.P-GjdWhejz2yr57R?startTime=1734008474000')">
+                        <span>講義動画を見る</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 さとりの森</p>
+    </footer>
+    <script>
+        function checkLecturePasscode(event, lectureUrl) {
+            event.preventDefault();
+            
+            // モーダルダイアログを作成
+            const modalHtml = `
+                <div id="passcodeModal" class="modal">
+                    <div class="modal-content">
+                        <h3>パスコード認証</h3>
+                        <p>講義動画を視聴するにはパスコードを入力してください</p>
+                        <input type="password" id="passcodeInput" class="passcode-input">
+                        <div class="modal-buttons">
+                            <button onclick="submitPasscode('${lectureUrl}')" class="submit-button">確認</button>
+                            <button onclick="closeModal()" class="cancel-button">キャンセル</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // モーダルをページに追加
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+            
+            // モーダルを表示
+            const modal = document.getElementById('passcodeModal');
+            modal.style.display = 'block';
+            
+            // 入力フィールドにフォーカス
+            document.getElementById('passcodeInput').focus();
+            
+            // Enterキーでの送信を有効化
+            document.getElementById('passcodeInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    submitPasscode(lectureUrl);
+                }
+            });
+        }
+
+        function submitPasscode(lectureUrl) {
+            const passcode = document.getElementById('passcodeInput').value;
+            const today = new Date();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            const correctPasscode = month + day + 'satori';
+            
+            if (passcode === correctPasscode) {
+                window.open(lectureUrl, '_blank');
+                closeModal();
+            } else {
+                alert('パスコードが正しくありません');
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('passcodeModal');
+            modal.remove();
+        }
+    </script>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .modal-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .modal-content p {
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #666;
+        }
+
+        .passcode-input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .passcode-input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .submit-button, .cancel-button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .submit-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .cancel-button {
+            background-color: #f0f0f0;
+            color: #666;
+        }
+
+        .cancel-button:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</body>
+</html> 

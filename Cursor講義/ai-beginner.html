@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI初級講座 | さとりの森</title>
+    <link rel="icon" type="image/png" href="https://i.imgur.com/Q51tG0e.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="js/auth.js"></script>
+</head>
+<body>
+    <header>
+        <h1>AI初級講座</h1>
+        <div class="header-ornament left"></div>
+        <div class="header-ornament right"></div>
+    </header>
+    <main>
+        <section class="content">
+            <div class="breadcrumb">
+                <a href="index.html">ホーム</a> > AI初級講座
+            </div>
+            <div class="level-description">
+                <img src="https://i.imgur.com/C7WLcJv.jpg" alt="AI初級講座イメージ" class="level-image">
+                <p>AIツールの基本的な使い方を学び、AIと共に効率的に作業する方法を習得します。各ツールの特徴や活用シーンを理解し、実践的なスキルを身につけることができます。</p>
+            </div>
+            <div class="lecture-list">
+                <div class="lecture-item">
+                    <div class="lecture-content">
+                        <h4 class="lecture-title">Cursor入門</h4>
+                        <p class="lecture-description">AIを活用したコーディングの基礎を学びます。Cursorの基本的な使い方から実践的なコーディングまで解説します。</p>
+                    </div>
+                    <a href="#" class="button forest-button" onclick="checkLecturePasscode(event, 'https://planet-wound-c29.notion.site/2024-9-3-AI-Cursor-135a6ea30d5d802fac21fb76798b6be1?pvs=4')">
+                        <span>講義動画を見る</span>
+                    </a>
+                </div>
+                <div class="lecture-item">
+                    <div class="lecture-content">
+                        <h4 class="lecture-title">Dify入門</h4>
+                        <p class="lecture-description">ノーコードでAIアプリケーションを作成できるDifyの使い方を解説。実践的なアプリケーション作成までご紹介します。</p>
+                    </div>
+                    <a href="#" class="button forest-button" onclick="checkLecturePasscode(event, 'https://planet-wound-c29.notion.site/2024-10-22-1-AI-Dify-dec3f0099b294979887cb1ad3dede857?pvs=4')">
+                        <span>講義動画を見る</span>
+                    </a>
+                </div>
+                <div class="lecture-item">
+                    <div class="lecture-content">
+                        <h4 class="lecture-title">Bolt.new入門</h4>
+                        <p class="lecture-description">AIを活用したWebアプリケーション開発プラットフォームBolt.newの使い方を解説。効率的なアプリ開発手法を学びます。</p>
+                    </div>
+                    <a href="#" class="button forest-button" onclick="checkLecturePasscode(event, 'https://planet-wound-c29.notion.site/2024-11-5-2-AI-Bolt-new-ae8963c267a44e308cba8f351fc1af22?pvs=4')">
+                        <span>講義動画を見る</span>
+                    </a>
+                </div>
+                <div class="lecture-item">
+                    <div class="lecture-content">
+                        <h4 class="lecture-title">Replit入門</h4>
+                        <p class="lecture-description">ブラウザベースの開発環境Replitの活用方法を解説。AIアシスタントを使った効率的なコーディング手法を学びます。</p>
+                    </div>
+                    <a href="#" class="button forest-button" onclick="checkLecturePasscode(event, 'https://us06web.zoom.us/rec/share/rT_0pVQln7V54vK0H2qacpzinxn0MztDtEVHAL67wP6TgjIvd9fTeRa1hlNtrKkZ.FX3SuQkxAUe4tdgC?startTime=1732021258000')">
+                        <span>講義動画を見る</span>
+                    </a>
+                </div>
+                <div class="lecture-item">
+                    <div class="lecture-content">
+                        <h4 class="lecture-title">GPTs入門</h4>
+                        <p class="lecture-description">ChatGPTのMyGPTsを活用して、正確な六星占術の結果を提供するBotの作成方法を解説します。プロンプトの設計から実装まで、ステップバイステップで学べます。</p>
+                    </div>
+                    <a href="#" class="button forest-button" onclick="checkLecturePasscode(event, 'https://us06web.zoom.us/rec/share/m9bTj-cXKTV7hmMk1IsUqIJovXPO7rZNK9Czm7wXW1I4xXsdQnoZXmC3k0iWorDZ.2lYp91tRYlui4nut')">
+                        <span>講義動画を見る</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 さとりの森</p>
+    </footer>
+    <script>
+        function checkLecturePasscode(event, lectureUrl) {
+            event.preventDefault();
+            
+            // モーダルダイアログを作成
+            const modalHtml = `
+                <div id="passcodeModal" class="modal">
+                    <div class="modal-content">
+                        <h3>パスコード認証</h3>
+                        <p>講義動画を視聴するにはパスコードを入力してください</p>
+                        <input type="password" id="passcodeInput" class="passcode-input">
+                        <div class="modal-buttons">
+                            <button onclick="submitPasscode('${lectureUrl}')" class="submit-button">確認</button>
+                            <button onclick="closeModal()" class="cancel-button">キャンセル</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // モーダルをページに追加
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+            
+            // モーダルを表示
+            const modal = document.getElementById('passcodeModal');
+            modal.style.display = 'block';
+            
+            // 入力フィールドにフォーカス
+            document.getElementById('passcodeInput').focus();
+            
+            // Enterキーでの送信を有効化
+            document.getElementById('passcodeInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    submitPasscode(lectureUrl);
+                }
+            });
+        }
+
+        function submitPasscode(lectureUrl) {
+            const passcode = document.getElementById('passcodeInput').value;
+            const today = new Date();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            const correctPasscode = month + day + 'satori';
+            
+            if (passcode === correctPasscode) {
+                window.open(lectureUrl, '_blank');
+                closeModal();
+            } else {
+                alert('パスコードが正しくありません');
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('passcodeModal');
+            modal.remove();
+        }
+    </script>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .modal-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .modal-content p {
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #666;
+        }
+
+        .passcode-input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .passcode-input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .submit-button, .cancel-button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .submit-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .cancel-button {
+            background-color: #f0f0f0;
+            color: #666;
+        }
+
+        .cancel-button:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</body>
+</html> 

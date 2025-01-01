@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>さとりの森の利用方法 | さとりの森</title>
+    <link rel="icon" type="image/png" href="https://i.imgur.com/Q51tG0e.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>さとりの森の利用方法</h1>
+    </header>
+    <main>
+        <article class="content">
+            <nav class="breadcrumb">
+                <a href="index.html">ホーム</a> > さとりの森の利用方法
+                <a href="#" class="notion-link" onclick="checkLecturePasscode(event, 'https://polyester-glue-2fb.notion.site/1076a178a71380f3843ef9051b3d3f79?pvs=4')">
+                    <i class="fab fa-notion"></i>
+                    Notionで詳細を見る
+                </a>
+            </nav>
+            
+            <div class="article-content">
+                <h2>さとりの森とは</h2>
+                <p>
+                    さとりの森は、AIを活用したライティングスキルを学び、実践するためのコミュニティです。
+                    Discord上で運営されており、様々な講座やコンテンツを提供しています。
+                </p>
+
+                <h2>主なコンテンツ</h2>
+                <div class="content-list">
+                    <h3>1. AI講義</h3>
+                    <ul>
+                        <li>定期的なライブ講座</li>
+                        <li>録画コンテンツの視聴</li>
+                        <li>実践的なワークショップ</li>
+                    </ul>
+
+                    <h3>2. 週刊さとり</h3>
+                    <ul>
+                        <li>最新のAI情報</li>
+                        <li>実践的なTips</li>
+                        <li>メンバー限定情報</li>
+                    </ul>
+
+                    <h3>3. コミュニティ機能</h3>
+                    <ul>
+                        <li>質問・相談チャンネル</li>
+                        <li>実績共有の場</li>
+                        <li>メンバー同士の交流</li>
+                    </ul>
+                </div>
+
+                <h2>利用開始の流れ</h2>
+                <ol class="steps">
+                    <li>Discordサーバーへの参加</li>
+                    <li>自己紹介の投稿</li>
+                    <li>各種チャンネルの確認</li>
+                    <li>講座やコンテンツの視聴開始</li>
+                </ol>
+
+                <div class="notion-link-container">
+                    <p>より詳しい利用方法や各種ガイドラインは、Notionページでご確認いただけます：</p>
+                    <a href="#" class="button notion-button" onclick="checkLecturePasscode(event, 'https://polyester-glue-2fb.notion.site/1076a178a71380f3843ef9051b3d3f79?pvs=4')">
+                        <i class="fab fa-notion"></i>
+                        <span>Notionで詳細を見る</span>
+                    </a>
+                </div>
+            </div>
+            
+            <nav class="page-nav">
+                <a href="index.html" class="button forest-button">
+                    <span>トップページに戻る</span>
+                </a>
+            </nav>
+        </article>
+    </main>
+    <footer>
+        <p>&copy; 2024 さとりの森</p>
+    </footer>
+
+    <script>
+        function checkLecturePasscode(event, lectureUrl) {
+            event.preventDefault();
+            
+            // モーダルダイアログを作成
+            const modalHtml = `
+                <div id="passcodeModal" class="modal">
+                    <div class="modal-content">
+                        <h3>パスコード認証</h3>
+                        <p>詳細を閲覧するにはパスコードを入力してください</p>
+                        <input type="password" id="passcodeInput" class="passcode-input">
+                        <div class="modal-buttons">
+                            <button onclick="submitPasscode('${lectureUrl}')" class="submit-button">確認</button>
+                            <button onclick="closeModal()" class="cancel-button">キャンセル</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // モーダルをページに追加
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+            
+            // モーダルを表示
+            const modal = document.getElementById('passcodeModal');
+            modal.style.display = 'block';
+            
+            // 入力フィールドにフォーカス
+            document.getElementById('passcodeInput').focus();
+            
+            // Enterキーでの送信を有効化
+            document.getElementById('passcodeInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    submitPasscode(lectureUrl);
+                }
+            });
+        }
+
+        function submitPasscode(lectureUrl) {
+            const passcode = document.getElementById('passcodeInput').value;
+            const today = new Date();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            const correctPasscode = month + day + 'satori';
+            
+            if (passcode === correctPasscode) {
+                window.open(lectureUrl, '_blank');
+                closeModal();
+            } else {
+                alert('パスコードが正しくありません');
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('passcodeModal');
+            modal.remove();
+        }
+    </script>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .modal-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .modal-content p {
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #666;
+        }
+
+        .passcode-input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .passcode-input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .submit-button, .cancel-button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .submit-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .cancel-button {
+            background-color: #f0f0f0;
+            color: #666;
+        }
+
+        .cancel-button:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</body>
+</html> 
